@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<package name = "com.db.domain" /> <!-- parameterType, resultType에 사용하는 클래스의 이름 com.db.domain을 생략한 채로 표현이 가능하다 -->
+	</typeAliases>
+
+</configuration>
