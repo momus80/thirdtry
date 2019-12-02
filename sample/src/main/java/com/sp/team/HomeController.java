@@ -36,4 +36,7 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/company")
+	public void company() {}
+	
 }

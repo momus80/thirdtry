@@ -10,6 +10,11 @@ public interface BoardDAO {
 	//update
 	public int updateBoard(BoardVO vo) throws Exception;
 	//select
-	public List<BoardVO> getListAll(int num, int cnt) throws Exception;
+	public List<BoardVO> getListAll(int start, int cnt) throws Exception;
 	
+	public float getBoardCount() throws Exception;
+	
+	public BoardVO getContent(int bno) throws Exception;
+	
+	public int removeBoard(int bno) throws Exception;
 }
