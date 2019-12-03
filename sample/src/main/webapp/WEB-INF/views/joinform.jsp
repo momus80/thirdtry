@@ -13,6 +13,7 @@
         }
         body{
             text-align: center;
+        	background-color: #D8D7D7;
         }
         #logo img{
             width: 400px;
@@ -31,7 +32,7 @@
     </style>
 </head>
 <body>
-	<div id="logo"><img src="/resources/salt-logo.png"></div>
+	<div id="logo"><img src="/resources/salt-logo.jpg"></div>
 	<h2>JOIN US</h2>
 	<form action="/join" method="post">
 		ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input name="id" type="text"> <br>

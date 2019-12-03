@@ -2,12 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        body{
-            
+        body{ 
+        	background-image: url("/resources/1p.jpg");
         }
         *{
             padding: 0;
@@ -25,8 +26,8 @@
             width: 250px;
             height: 150px;
         }
-        div{
-            
+        h1{
+            font-family: 'Fredericka the Great', cursive;
         }
         #main{
             width: 70%;
@@ -35,6 +36,10 @@
         }
         #logo{
             width: 20%;
+        }
+        #logo a{
+        	width: 100%;
+        	height: 150px;
         }
         header #logout{
             position: absolute;
@@ -72,7 +77,7 @@
 <body>
     <header>
        <div id="logo">
-        <img src="/resources/salt-logo-mini.png">
+        <a href="/board"><img src="/resources/salt-logo-mini.jpg"></a>
        </div>
        <div id="main">    
         <h1>Lim's Kitchen</h1>

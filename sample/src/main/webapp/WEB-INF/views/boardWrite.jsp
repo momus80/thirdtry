@@ -8,41 +8,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+<style>
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
+    body{
+        font-family: 'Josefin Sans', sans-serif;
+    }
     #wrap{
+        width: 80%;
+        margin: 0 auto;
+    }
+    table{
+        width: 100%;
         text-align: center;
-        font-size: 3rem;
+        margin: 0 auto;
+    }
+    table tr{
+        width: 100%;
+        height: 20px;
+    }
+    table tr td{
+        width: 100%;
+        padding-top: 20px;
     }
     input{
-        width: 690px;
-        height: 50px;
-        margin-bottom: 20px;
+        width: 90%;
+        height: 20px;
+        float: right;
+    }
+    table textarea{
+        width: 90%;
+        height: 200px;
+        float: right;
+    }
+    #button{
+        width: 100%;
+        text-align: center;
     }
     button{
-        border: 0;
         background-color: transparent;
-        font-size: 2rem;
+        border: 0;
+        font-size: 30px;
+    }
+    button:hover{
+        cursor: pointer;
+        opacity: 0.7;
     }
 </style>
 </head>
 <body>
     <div id="wrap">
         <form action="/board/insert">
-		<div>
-			<label>Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </label><input name="title">
+		<table>
+		    <tr><td>TITLE : <input name="title"></td>
+		    </tr>
+		    <tr><td>CONTENT : <textarea name="content"></textarea></td></tr>
+		    <tr><td>WRITER : <input name="w_id" readonly="readonly" value="${w_id}"></td></tr>
+		</table><br/>
+		<div id="button">
+		    <button>Write</button>
 		</div>
-		<div>
-			<label>Content : </label><textarea rows="10" cols="95" name="content"></textarea>
-		</div>
-		<div>
-			<label>Writer&nbsp;&nbsp; : </label><input name="w_id" readonly="readonly" value="${w_id}">
-		</div>
-		<button>Write</button>
 	</form>
     </div>
 </body>

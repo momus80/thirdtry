@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
 <style>
 <style>
     *{
@@ -15,44 +16,79 @@
         padding: 0;
         box-sizing: border-box;
     }
+    body{
+        font-family: 'Josefin Sans', sans-serif;
+    }
     #wrap{
+        width: 80%;
         margin: 0 auto;
-        margin-top: 20px;
-        width: 70%;
+    }
+    table{
+        width: 100%;
         text-align: center;
-        position: relative;
-        font-size: 2rem;
+        margin: 0 auto;
+    }
+    table tr{
+        width: 100%;
+        height: 20px;
+    }
+    table tr td{
+        width: 100%;
+        padding-top: 20px;
     }
     input{
-        width: 690px;
-        height: 50px;
-        margin-bottom: 20px;
+        width: 90%;
+        height: 20px;
+        float: right;
+    }
+    table textarea{
+        width: 90%;
+        height: 200px;
+        float: right;
+    }
+    #button{
+        width: 100%;
+        text-align: center;
     }
     button{
-        border: 0;
         background-color: transparent;
-        font-size: 2rem;
+        border: 0;
+        font-size: 30px;
+    }
+    button:hover{
+        cursor: pointer;
+        opacity: 0.7;
     }
 </style>
 </head>
 <body>
 <div id="wrap">
-	<form action="/board/update">
-		<div>
-			<label>BNO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label><input name="bno" value='<c:out value="${board.bno }"/>' readonly="readonly">
-		</div>
-		<div>
-			<label>Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label><input name="title" value='<c:out value="${board.title }"/>'>
-		</div>
-		<div>
-			<label>Content : </label><textarea rows="10" cols="100" name="content"><c:out value="${board.content }"/></textarea>
-		</div>
-		<div>
-			<label>Writer&nbsp;&nbsp; : </label><input name="w_id"  value='<c:out value="${board.w_id }"/>' readonly="readonly">
-		</div>
-		<button>UPDATE</button>
+	<form name="frm">
+		<table>
+		    <tr><td>BNO : <input name="bno" value='<c:out value="${board.bno }"/>' readonly="readonly"></td></tr>
+		    <tr><td>TITLE : <input name="title" value='<c:out value="${board.title }"/>'></td>
+		    </tr>
+		    <tr><td>CONTENT : <textarea name="content"><c:out value="${board.content }"/></textarea></td></tr>
+		    <tr><td>WRITER : <input name="w_id"  value='<c:out value="${board.w_id }"/>' readonly="readonly"></td></tr>
+		</table><br/>
+		<div id="button">
+            <button id="update">UPDATE</button>
+            <button id="list">Back to list</button>
+	    </div>
 	</form>
-	<button onclick="location.href='/board'">Back to list</button>
 </div>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		$(function(){
+            $("#update").click(function(){
+				document.frm.action="/board/update";
+				document.frm.submit();
+			});
+            $("#list").click(function(){
+				document.frm.action="/board";
+				document.frm.submit();
+			});
+         });
+    </script>
 </body>
 </html>

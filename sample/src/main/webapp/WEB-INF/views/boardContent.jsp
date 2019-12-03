@@ -8,68 +8,127 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
 <style>
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
+    body{
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bolder;
+    }
     #wrap{
+        width: 80%;
         margin: 0 auto;
-        margin-top: 20px;
-        width: 70%;
+    }
+    table{
+        width: 100%;
         text-align: center;
-        position: relative;
-        font-size: 2rem;
+        margin: 0 auto;
+    }
+    table tr{
+        width: 100%;
+        height: 20px;
+    }
+    table tr td{
+        width: 100%;
+        padding-top: 20px;
     }
     input{
-        width: 690px;
-        height: 50px;
-        margin-bottom: 20px;
+        width: 90%;
+        height: 20px;
+        float: right;
+    }
+    table textarea{
+        width: 90%;
+        height: 200px;
+        float: right;
+    }
+    #button{
+        width: 100%;
+        text-align: center;
     }
     button{
-        border: 0;
         background-color: transparent;
-        font-size: 2rem;
+        border: 0;
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bolder;
+    }
+    #rno:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+    #buttons{
+        width: 100%;
+        text-align: center;
+    }
+    #reply-list{
+        width: 100%;
+        text-align: center;
+    }
+    #reply-start{
+    	margin-left: 380px;
+    	width: 50%;
+        background-color: white;
+        border: 1px solid gray;
+    }
+    #reply-content{
+        width: 100%;
+        text-align: center;
+    }
+    #reply-content textarea{
+        width: 60%;
+        border-radius: 15px;
     }
 </style>
 </head>
 <body>
+<div id="wrap">
 	<form name="frm">
-		<div>
-			<label>BNO</label><input name="bno" value='<c:out value="${board.bno }"/>' readonly="readonly">
-		</div>
-		<div>
-			<label>title</label><input name="title" value='<c:out value="${board.title }"/>' readonly="readonly">
-		</div>
-		<div>
-			<label>TextArea</label><textarea rows="3" name="content" readonly="readonly"><c:out value="${board.content }"/></textarea>
-		</div>
-		<div>
-			<label>Writer</label><input name="w_id"  value='<c:out value="${board.w_id }"/>' readonly="readonly">
-		</div>
-		<button id="remove">REMOVE</button>
-		<button id="update">UPDATE</button>
-		<c:forEach var="list" items="${list }">
-			<div>
-				${list.w_id } : ${list.content }
-				
-				<c:if test="${id eq list.w_id }">
-					<button class="delete" name="rno" value="${list.rno }">x</button><br>
-				</c:if>
-			</div>
-		</c:forEach>
-		<c:forEach var="item" items="${reply}">
-			<a href="board/get?replyNum=${item}&bno=${bno.bno}">[${item}]</a>
-		</c:forEach>
-		<span>${id } : </span>
-		<textarea rows="5" cols="20" name="reply-content"></textarea>
-		<button id="reply">REPLY</button>
+		<table>
+		    <tr><td>BNO : <input name="bno" value='<c:out value="${board.bno }"/>' readonly="readonly"></td></tr>
+		    <tr><td>TITLE : <input name="title" value='<c:out value="${board.title }"/>' readonly="readonly"></td>
+		    </tr>
+		    <tr><td>CONTENT : <textarea name="content" readonly="readonly"><c:out value="${board.content }"/></textarea></td></tr>
+		    <tr><td>WRITER : <input name="w_id"  value='<c:out value="${board.w_id }"/>' readonly="readonly"></td></tr>
+		</table><br/>
+		<div id="button">
+            <button id="remove">REMOVE</button> | 
+            <button id="update">UPDATE</button>
+		</div><br/>
+		<div id="reply-start">
+			<c:forEach var="list" items="${list }">
+				<div id="reply-list">
+					${list.w_id } : ${list.content }
+					
+					<c:if test="${id eq list.w_id }">
+						<button class="delete" id="rno" name="rno" value="${list.rno }">x</button><br>
+					</c:if>
+				</div><br/>
+			</c:forEach>
+		</div><br>
+		<div id="reply-content">
+		    <c:forEach var="item" items="${reply}">
+				<a href="board/get?replyNum=${item}&bno=${bno.bno}">[${item}]</a>
+		    </c:forEach>
+		    <br><br><span>${id } : </span>
+		    <textarea rows="5" cols="20" name="reply-content"></textarea>
+        </div>
+		<div id="buttons">
+            <button id="reply">REPLY</button> | 
+            <button id="list">Back to list</button>
+	    </div>
 	</form>
-	<button onclick="location.href='/board'">list</button>
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	</div>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
 		$(function(){
+            $("#list").click(function(){
+				document.frm.action="/board";
+				document.frm.submit();
+			});
 			$("#update").click(function(){
 				document.frm.action="/board/updateform";
 				document.frm.submit();

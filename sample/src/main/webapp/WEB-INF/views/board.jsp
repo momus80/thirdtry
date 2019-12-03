@@ -27,6 +27,7 @@
         width: 100%;
         border-collapse: collapse;
         font-size: 20px;
+        background-color: white;
     }
     #wrap table td{
         border: 1px solid black;
@@ -51,6 +52,10 @@
     	background: transparent;
     	cursor: pointer;
     	font-size: 25px;
+    }
+    button:hover{
+    	opacity: 0.6;
+    	cursor: pointer;
     }
 </style>
 </head>

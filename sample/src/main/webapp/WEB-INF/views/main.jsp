@@ -14,6 +14,7 @@
     body{
         margin: 0 auto;
         text-align: center;
+        background-color: #D8D7D7;
     }
     #logo{
         margin-top: 60px;
@@ -35,7 +36,7 @@
 </style>
 </head>
 <body>
-    <div id="logo"><img src="/resources/salt-logo.png"></div>
+    <div id="logo"><img src="/resources/salt-logo.jpg"></div>
 	<form name="frm">
 		아 이 디 &nbsp;&nbsp;: <input type="text" name="id"><br />
 		비밀번호 : <input type="password" name="pwd"><br />
